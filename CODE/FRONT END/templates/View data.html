@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Crypto Detection</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Sailor - v2.3.1
+  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header  id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo"><a href="/">Crypto Detection</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+       <a href="index.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+
+        <ul>
+          <li><a href="/">Home</a></li>
+
+
+          <li><a href="/Load data">Load Data</a></li>
+          <li class="active"><a href="/View data">View Data</a></li>
+          <li><a href="/Model">Select Model</a></li>
+          <li><a href="/Prediction">Prediction</a></li>
+          <li> <a href="/about">Bitcoin</a> </li>
+          <li><a href="/Logout">Logout</a></li>
+
+
+
+
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header><!-- End Header -->
+
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+<!--      <div class="carousel-inner" role="listbox">-->
+                  <div class="carousel-item active" style="background-image: url(static/assets/img/slide/2.jpg)">
+          <div class="carousel-container" style="top: 333px;">
+            <div class="container">
+              {% if msg %}
+              <div class="alert alert-warning text-center">
+                  <h4>{{ msg }}</h4>
+              </div>
+          {% else %}
+              <section id="content">
+                  <div class="table-responsive" style="overflow-x:auto;width:100%;height:655px;color:#f8f9fa">
+                      <table class="table table-sm table-striped table-borderless mb-0">
+                          <thead class="thead-dark">
+                              <tr>
+                                  <th style="color:white">S/N</th>
+                                  {% for c in col_name %}
+                                      <th style="color:white;background:blue">{{ c }}</th>
+                                  {% endfor %}
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {% for row in row_val %}
+                                  <tr>
+                                      <th scope="row" style="color:#f8f9fa">{{ loop.index }}</th>
+                                      {% for r in row %}
+                                          <td style="color:#f8f9fa">{{ r }}</td>
+                                      {% endfor %}
+                                  </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table>
+                  </div>
+              </section>
+          {% endif %}
+          
+          
+          
+
+                  </div>
+               </div>
+           </div>
+<!--      </div>-->
+    </div>
+  </section>
+
+
+          <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+          <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+          <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+          <script src="static/assets/vendor/php-email-form/validate.js"></script>
+          <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+          <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+          <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+          <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+          <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>
