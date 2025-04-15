@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>BITCOIN</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="/static/assets/css/stylenew.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="/static/assets/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="/static/images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <style>
+        body {
+          background: url('static/assets/img/high.jpg') no-repeat center center fixed;
+          background-size: cover;
+        }
+      
+        #header {
+          background: rgba(15, 52, 96, 0.95);
+          padding: 10px 0;
+        }
+      
+        .logo a {
+          font-size: 2rem;
+          font-weight: 700;
+          text-decoration: none;
+        }
+      
+        .logo a span {
+          color: #00c9a7;
+        }
+      
+        .logo a {
+          color: #e0e0e0;
+        }
+      
+        .nav-menu ul {
+          display: flex;
+          gap: 30px;
+          margin: 0;
+          padding: 5;
+        }
+      
+        .nav-menu li {
+          list-style: none;
+        }
+      
+        .nav-menu a {
+          font-size: 1.1rem;
+          color: #fff;
+          padding: 6px 12px;
+          border-radius: 6px;
+          transition: 0.3s;
+          display: inline-block;
+        }
+      
+        .nav-menu a:hover,
+        .nav-menu .active > a {
+          background-color: #00c9a7;
+          color: #0f2027;
+        }
+      
+        #hero {
+          width: 100%;
+          height: 100vh;
+          background: url('static/assets/img/bit.jpg') center center / cover no-repeat;
+          position: relative;
+        }
+      
+        #hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          z-index: 1;
+        }
+      
+        #hero .container {
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          color: #fff;
+          text-align: center;
+          padding-bottom: 80px;
+        }
+      
+        h3 {
+          font-size: 2.2rem;
+          font-weight: 600;
+          color: rgb(8, 179, 74);
+          margin-bottom: 20px;
+        }
+      
+        /* Styling for Date Inputs */
+        .form-control {
+          border-radius: 8px;
+          border: 2px solid #00c9a7;
+          padding: 12px 18px;
+          font-size: 1.2rem;
+          color: #333; /* Darker text color for better visibility */
+          background-color: #f5f5f5;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+      
+        .form-control:focus {
+          background-color: #fff;
+          border-color: #00a59d;
+          box-shadow: 0 0 8px rgba(0, 201, 167, 0.5);
+        }
+      
+        .form-group label {
+          font-size: 1.1rem;
+          color: #fff;
+          margin-bottom: 5px;
+        }
+      
+        /* Button Style */
+        /* Button Style */
+        .btn-primary {
+          background-color:rgb(3, 177, 148);
+          border-color: #00c9a7;
+          font-family: 'Arial', sans-serif; /* Consistent font family */
+          font-size: 1rem;  /* Reduced font size */
+          font-weight: bold;  /* Bold text for better emphasis */
+          padding: 10px 18px;  /* Reduced padding */
+          border-radius: 8px;
+          text-transform: uppercase;  /* Makes the text more impactful */
+          letter-spacing: 1px;  /* Adds space between letters */
+          transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+         
+            background-color: #0fb7b2;
+            color: #fff;
+          }
+        
+        
+      
+        /* Table Styling */
+        table {
+          width: 100%;
+          margin-top: 30px;
+          background-color: rgba(255, 255, 255, 0.9);
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          overflow-x: auto; /* Allows horizontal scrolling for smaller screens */
+        }
+        
+        th, td {
+          padding: 15px 20px;  /* Adjust padding for better readability */
+          text-align: center;
+          border: 1px solid #ddd;
+          font-size: 1.1rem;  /* Slightly reduced font size */
+          color: #333;  /* Ensure readability of text */
+        }
+        
+        th {
+          background-color: #00c9a7;
+          color: #fff;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        
+        td {
+          background-color: #fff;
+          color: #333;
+        }
+        
+        tr:nth-child(even) td {
+          background-color: #f9f9f9;  /* Alternate row background */
+        }
+        
+        tr:hover td {
+          background-color: #e0f7f3;  /* Subtle hover effect on rows */
+        }
+        
+        .table-heading {
+          font-size: 2.5rem;  /* Increased size for better visibility */
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+          margin-top: 30px;
+          text-transform: uppercase;
+        }
+        
+        @media (max-width: 768px) {
+          th, td {
+            font-size: 1rem;  /* Adjust font size for table cells on smaller screens */
+            padding: 10px;  /* Adjust padding for smaller screens */
+          }
+        
+          .table-heading {
+            font-size: 1.8rem;  /* Adjust heading size for smaller screens */
+          }
+        }
+        
+      
+        /* Heading Style for "Predicted Bitcoin Prices" */
+        .table-heading {
+          font-size: 2rem;  /* Increased size for better visibility */
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+          margin-top: 30px;
+        }
+      
+        /* Add spacing for small devices */
+        @media (max-width: 768px) {
+          .nav-menu ul {
+            flex-direction: column;
+            align-items: center;
+          }
+      
+          .form-control {
+            font-size: 1rem;
+            padding: 10px 15px;
+          }
+      
+          .btn-primary {
+            padding: 10px 15px;
+          }
+        
+      
+      
+          .table-heading {
+            font-size: 1.8rem;  /* Adjust heading size for smaller screens */
+          }
+      
+          th, td {
+            font-size: 1rem;  /* Adjust font size for table cells */
+          }
+        }
+      </style>
+      
+    </head>
+    
+    <body>
+    
+      <!-- Header -->
+      <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">crypto</span><span>FORECAST</span></a></h1>
+          <nav class="nav-menu d-none d-lg-block">
+            <ul>
+             <li><a href="/user">Home</a></li>
+             <li><a href="/Select">Select Crypto</a></li>
+             <li ><a href="/Cardano">Cardano</a></li>
+             <li ><a href="/Cardanodata">View Data</a></li>
+             <li class="active"><a href="/Cardanopred">Prediction</a></li>
+             <li><a href="/Logout">Logout</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="container mt-5">
+        <h2 class="text-center mb-4 heading-text"></h2>
+        <form method="POST" action="/Cardanopred">
+            <div class="form-group">
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Get Prediction</button>
+          </form>
+
+        {% if forecast %}
+        <h2 class="table-heading">Predicted Bitcoin Prices</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Predicted Price</th>
+                    <th>Lower Bound</th>
+                    <th>Upper Bound</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in forecast %}
+                    <tr>
+                        <td>{{ row['ds'] }}</td>
+                        <td>{{ row['yhat'] }}</td>
+                        <td>{{ row['yhat_lower'] }}</td>
+                        <td>{{ row['yhat_upper'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    
+      </div>
+      
+      <!-- Javascript files--> 
+      <script src="/static/js/jquery.min.js"></script> 
+      <script src="/static/js/popper.min.js"></script> 
+      <script src="/static/js/bootstrap.bundle.min.js"></script> 
+      <script src="/static/js/jquery-3.0.0.min.js"></script> 
+      <script src="/static/js/plugin.js"></script> 
+      <!-- sidebar --> 
+      <script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script src="/static/js/custom.js"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         $(".zoom").hover(function(){
+         
+         $(this).addClass('transition');
+         }, function(){
+         
+         $(this).removeClass('transition');
+         });
+         });
+      </script> 
+   </body>
+</html>

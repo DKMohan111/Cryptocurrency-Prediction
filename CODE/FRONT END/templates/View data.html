@@ -2,136 +2,294 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crypto Detection</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="static/assets/img/favicon.png" rel="icon">
   <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="static/assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Sailor - v2.3.1
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f2027;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Navbar Styling */
+    #header {
+      background: rgba(15, 52, 96, 0.95);
+      padding: 10px 0;
+    }
+
+    .logo a {
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #e0e0e0;
+    }
+
+    .logo a span {
+      color: #00c9a7;
+    }
+
+    .nav-menu ul {
+      display: flex;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 1.1rem;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu .active > a {
+      background-color: #00c9a7;
+      color: #0f2027;
+    }
+
+    /* Hero Section Styling */
+    #hero {
+      width: 100%;
+      height: 100%;
+      background: url('static/assets/img/high.jpg') center center / cover no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    #hero .container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
+      padding: 20px;
+    }
+
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: rgb(8, 179, 74);
+      margin-bottom: 20px;
+    }
+
+    /* Table and Search */
+    .search-container {
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .search-container input {
+      padding: 15px;
+      font-size: 1.2rem;
+      width: 100%; /* Full width of its container */
+      max-width: 100%; /* Ensures no overflow */
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: 0.3s ease;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      box-sizing: border-box;
+    }
+
+    .search-container input:focus {
+      border-color: #1abc9c;
+      outline: none;
+    }
+
+    /* Table responsiveness and scroll */
+    .table-responsive {
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      height: calc(100vh - 300px); /* Table takes up the remaining space */
+      overflow-y: auto; /* Vertical scrolling */
+      overflow-x: auto; /* Horizontal scrolling */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto; /* Allow table to expand to content */
+    }
+
+    table th, table td {
+      padding: 20px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table th {
+      background-color:rgb(4, 186, 156);
+      color: white;
+    }
+
+    table td {
+      background-color: #ecf0f1;
+    }
+
+    table tr:nth-child(even) td {
+      background-color: #f4f4f4;
+    }
+
+    /* Responsive Table */
+    @media (max-width: 768px) {
+      .search-container input {
+        width: 100%;
+      }
+
+      table {
+        font-size: 1rem;
+      }
+
+      table th, table td {
+        padding: 15px;
+      }
+    }
+
+    /* Remove hover effect */
+    table tr:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header  id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo"><a href="/">Crypto Detection</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="index.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>
-
+  <!-- Header -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">Crypto</span><span>Detection</span></a></h1>
       <nav class="nav-menu d-none d-lg-block">
-
         <ul>
-          <li><a href="/">Home</a></li>
-
-
+          <li><a href="/user">Home</a></li>
           <li><a href="/Load data">Load Data</a></li>
+          {% if data_loaded %}
           <li class="active"><a href="/View data">View Data</a></li>
-          <li><a href="/Model">Select Model</a></li>
-          <li><a href="/Prediction">Prediction</a></li>
-          <li> <a href="/about">Bitcoin</a> </li>
-          <li><a href="/Logout">Logout</a></li>
-
-
-
-
-
-        </ul>
-
-      </nav>
-
-    </div>
-  </header><!-- End Header -->
-
-  <section id="hero">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-<!--      <div class="carousel-inner" role="listbox">-->
-                  <div class="carousel-item active" style="background-image: url(static/assets/img/slide/2.jpg)">
-          <div class="carousel-container" style="top: 333px;">
-            <div class="container">
-              {% if msg %}
-              <div class="alert alert-warning text-center">
-                  <h4>{{ msg }}</h4>
-              </div>
-          {% else %}
-              <section id="content">
-                  <div class="table-responsive" style="overflow-x:auto;width:100%;height:655px;color:#f8f9fa">
-                      <table class="table table-sm table-striped table-borderless mb-0">
-                          <thead class="thead-dark">
-                              <tr>
-                                  <th style="color:white">S/N</th>
-                                  {% for c in col_name %}
-                                      <th style="color:white;background:blue">{{ c }}</th>
-                                  {% endfor %}
-                              </tr>
-                          </thead>
-                          <tbody>
-                              {% for row in row_val %}
-                                  <tr>
-                                      <th scope="row" style="color:#f8f9fa">{{ loop.index }}</th>
-                                      {% for r in row %}
-                                          <td style="color:#f8f9fa">{{ r }}</td>
-                                      {% endfor %}
-                                  </tr>
-                              {% endfor %}
-                          </tbody>
-                      </table>
-                  </div>
-              </section>
           {% endif %}
-          
-          
-          
+          <li><a href="/Model">Select Model</a></li>
+          <li><a href="/Advanced">Prediction</a></li>
+          <li><a href="/Select">Forecast</a></li>
+          <li><a href="/Logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-                  </div>
-               </div>
-           </div>
-<!--      </div>-->
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      {% if msg %}
+      <h3>{{ msg }}</h3>
+      {% endif %}
+      <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for data...">
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              {% for c in col_name %}
+              <th>{{ c }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody id="dataTable">
+            {% for row in row_val %}
+            <tr>
+              <th scope="row">{{ loop.index }}</th>
+              {% for r in row %}
+              <td>{{ r }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
+  <!-- Search Table Script -->
+  <script>
+    function searchTable() {
+      var input, filter, table, tr, td, i, j, txtValue;
+      input = document.getElementById('searchInput');
+      filter = input.value.toUpperCase();
+      table = document.querySelector("table");
+      tr = table.getElementsByTagName("tr");
 
-          <script src="static/assets/vendor/jquery/jquery.min.js"></script>
-          <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-          <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-          <script src="static/assets/vendor/php-email-form/validate.js"></script>
-          <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-          <script src="static/assets/vendor/venobox/venobox.min.js"></script>
-          <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-          <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+      for (i = 1; i < tr.length; i++) {
+        tr[i].style.display = "none"; // Initially hide all rows
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+          if (td[j]) {
+            txtValue = td[j].textContent || td[j].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = ""; // Display the row if the filter matches
+              break;
+            }
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Template Main JS File -->
-          <script src="static/assets/js/main.js"></script>
+  <!-- Scripts -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

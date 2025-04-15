@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Advanced Prediction</title>
+
+  <!-- Stylesheets -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway|Poppins" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      background: url("static/assets/img/high.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Open Sans", sans-serif;
+      color: white;
+    }
+
+    #header {
+      background: rgba(15, 52, 96, 0.95);
+      padding: 10px 0;
+    }
+
+    .logo a {
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo a span {
+      color: #00c9a7;
+    }
+
+    .logo a {
+      color: #e0e0e0;
+    }
+
+    .nav-menu ul {
+      display: flex;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 1.1rem;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu .active > a {
+      background-color: #00c9a7;
+      color: #0f2027;
+    }
+
+    #hero {
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 80px;
+      min-height: 100vh;
+    }
+
+    #prediction-result {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      width: 65%;
+      margin: 25px auto;
+      color: #00ff99;
+      box-shadow: 0 0 12px #00ff99;
+    }
+
+    .form-container {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 950px;
+      margin: auto;
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.4);
+    }
+
+    .form-control {
+      background: transparent !important;
+      color: #00ff99;
+      border: 2px solid #00ff99;
+      margin-bottom: 12px;
+      transition: 0.3s ease;
+    }
+
+    .form-control::placeholder {
+      color: rgba(0, 225, 255, 0.5);
+    }
+
+    .form-control:focus {
+      border-color: #00e1ff;
+      box-shadow: 0 0 10px #00e1ff;
+    }
+
+    .btn-primary {
+      background-color: #00ff99;
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: 0.3s ease-in-out;
+      color: black;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .btn-primary:hover {
+      background-color: #00e1ff;
+      color: black;
+      box-shadow: 0 0 10px #00e1ff;
+    }
+
+    #search-bar {
+      width: 50%;
+      margin: auto;
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #222;
+      color: #00ff99;
+      border: 2px solid #00ff99;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    #search-bar:focus {
+      border-color: #00e1ff;
+      box-shadow: 0 0 10px #00e1ff;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">Crypto</span><span>Detection</span></a></h1>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="/user">Home</a></li>
+          <li><a href="/Load data">Load Data</a></li>
+          {% if data_loaded %}
+            <li><a href="/View data">View Data</a></li>
+          {% endif %}
+          <li><a href="/Model">Select Model</a></li>
+          <li class="active"><a href="/Advanced">Prediction</a></li>
+          <li><a href="/Select">Forecast</a></li>
+          <li><a href="/Logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <!-- Search Bar -->
+    <input type="text" id="search-bar" class="form-control" placeholder="Search for cryptocurrency...">
+
+    <!-- Prediction Result -->
+    <div id="prediction-result"></div>
+
+    <!-- Prediction Form -->
+    <div class="form-container">
+      <form id="prediction-form">
+        <!-- Normal Dropdown -->
+        <select id="crypto-select" name="crypto_name" class="form-control">
+          <option value="">Select Cryptocurrency</option>
+          {% for coin in coins %}
+            <option value="{{ coin }}">{{ coin }}</option>
+          {% endfor %}
+        </select>
+
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" id="name" name="name" placeholder="Name" class="form-control" readonly>
+            <input type="text" id="24h_volume_usd" name="24h_volume_usd" placeholder="24h Volume USD" class="form-control">
+            <input type="text" id="available_supply" name="available_supply" placeholder="Available Supply" class="form-control">
+            <input type="text" id="market_cap_usd" name="market_cap_usd" placeholder="Market Cap USD" class="form-control">
+            <input type="text" id="percent_change_1h" name="percent_change_1h" placeholder="Percent Change 1H" class="form-control">
+            <input type="text" id="percent_change_24h" name="percent_change_24h" placeholder="Percent Change 24H" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="percent_change_7d" name="percent_change_7d" placeholder="Percent Change 7D" class="form-control">
+            <input type="text" id="price_btc" name="price_btc" placeholder="Price BTC" class="form-control">
+            <input type="text" id="price_usd" name="price_usd" placeholder="Price USD" class="form-control">
+            <input type="text" id="rank" name="rank" placeholder="Rank" class="form-control">
+            <input type="text" id="symbol" name="symbol" placeholder="Symbol" class="form-control">
+            <input type="text" id="total_supply" name="total_supply" placeholder="Total Supply" class="form-control">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Predict</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function () {
+      // Search bar functionality for autocomplete-like behavior
+      $('#search-bar').on('input', function () {
+        var query = $(this).val().toLowerCase();
+        var filteredCoins = [];
+        
+        {% for coin in coins %}
+          var coinName = "{{ coin }}".toLowerCase();
+          if (coinName.includes(query)) {
+            filteredCoins.push("{{ coin }}");
+          }
+        {% endfor %}
+
+        // Populate the dropdown with filtered coins
+        var dropdown = $('#crypto-select');
+        dropdown.empty();
+        dropdown.append('<option value="">Select Cryptocurrency</option>');
+        filteredCoins.forEach(function(coin) {
+          dropdown.append('<option value="' + coin + '">' + coin + '</option>');
+        });
+      });
+
+      // Handle normal dropdown selection
+      $('#crypto-select').change(function () {
+        var selectedCrypto = $(this).val();
+        if (selectedCrypto) {
+          $.ajax({
+            url: '/get_crypto_data',
+            type: 'POST',
+            data: JSON.stringify({ crypto_name: selectedCrypto }),
+            contentType: 'application/json',
+            success: function (data) {
+              if (data.error) {
+                alert(data.msg);
+              } else {
+                // Fill the input fields with the returned data
+                $('#name').val(data.name);
+                $('#24h_volume_usd').val(data.volume).prop('readonly', false);
+                $('#available_supply').val(data.available_supply);
+                $('#market_cap_usd').val(data.market_cap_usd);
+                $('#percent_change_1h').val(data.percent_change_1h);
+                $('#percent_change_24h').val(data.percent_change_24h);
+                $('#percent_change_7d').val(data.percent_change_7d);
+                $('#price_btc').val(data.price_btc);
+                $('#price_usd').val(data.price_usd);
+                $('#rank').val(data.rank);
+                $('#symbol').val(data.symbol);
+                $('#total_supply').val(data.total_supply);
+              }
+            },
+            error: function () {
+              alert("Error fetching data from server.");
+            }
+          });
+        }
+      });
+
+      $('#prediction-form').submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+          url: '/Advanced',
+          type: 'POST',
+          data: $(this).serialize(),
+          success: function (data) {
+            $('#prediction-result').html(`
+              <div class="alert alert-success">
+                <strong>${data.msg}</strong>
+              </div>
+            `);
+          },
+          error: function () {
+            alert("Error making prediction.");
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

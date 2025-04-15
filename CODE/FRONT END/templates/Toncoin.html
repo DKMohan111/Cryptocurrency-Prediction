@@ -115,6 +115,12 @@
            color: rgb(8, 179, 74);
            margin-bottom: 20px;
          }
+         .about span,
+         .about p,
+         .about h2 {
+             color:black;  /* Darker shade to match the top text */
+         }
+         
      
        </style>
      </head>
@@ -124,14 +130,14 @@
        <!-- Header -->
        <header id="header" class="fixed-top">
          <div class="container d-flex align-items-center justify-content-between">
-           <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">BITCOIN</span><span>FORCAST</span></a></h1>
+           <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">crypto</span><span>FORECAST</span></a></h1>
            <nav class="nav-menu d-none d-lg-block">
              <ul>
               <li><a href="/user">Home</a></li>
-              <li class="active"><a href="/about">Bitcoin</a></li>
-              <li><a href="/viewdata">View Data</a></li>
-              
-              <li><a href="/predictionnew">Prediction</a></li>
+              <li><a href="/Select">Select Crypto</a></li>
+              <li class="active"><a href="/Toncoin">Toncoin</a></li>
+              <li><a href="/Toncoindata">View Data</a></li>
+              <li><a href="/Toncoinpred">Prediction</a></li>
               <li><a href="/Logout">Logout</a></li>
              </ul>
            </nav>
@@ -146,7 +152,7 @@
                <div class="col-md-12">
                   <div class="titlepage">
                      <h2>About Informations</h2>
-                     <span align="justify">In recent years, Bitcoin has emerged as a prominent digital asset, captivating the attention of investors and analysts alike. Given its volatile nature and potential for substantial returns, accurate price prediction is essential for informed decision-making. This project focuses on leveraging time series analysis techniques to forecast Bitcoin prices using the Prophet library developed by Facebook.</span>
+                     <span align="justify">Toncoin (TON) is the native cryptocurrency of The Open Network (TON), originally developed by Telegram. TON is a highly scalable and decentralized Layer-1 blockchain designed to handle millions of transactions per second with minimal fees. It aims to integrate blockchain technology with messaging apps and web services, creating a user-friendly ecosystem for decentralized applications (dApps), payments, and decentralized storage. Its deep integration potential with Telegram gives it a unique advantage in mainstream crypto adoption.</span>
                   </div>
                </div>
             </div>
@@ -155,14 +161,12 @@
             <div class="row flexcss">
                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                   <div class="about-box">
-                     <p align="justify">Prophet is designed for handling time series data that exhibit seasonal effects and trends, making it an ideal choice for financial forecasting. The project involves the collection and preprocessing of historical Bitcoin price data, followed by the application of Prophet to generate forecasts. By evaluating the model's performance through metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), we aim to validate its effectiveness in predicting future price movements.
-
-                        This analysis not only provides insights into Bitcoin price trends but also contributes to the growing body of knowledge surrounding cryptocurrency market dynamics. Ultimately, the goal is to create a robust predictive model that can assist investors and traders in making data-driven decisions in the ever-evolving cryptocurrency landscape.</p> 
+                     <p align="justify">To analyze and forecast Toncoin's price trends, we utilized the Facebook Prophet model, which is ideal for time series forecasting involving seasonal patterns and nonlinear trends. Historical TON pricing data was input into the model, allowing it to generate projections for future values. This data-driven forecasting method offers key insights into market behavior, enabling users and investors to better navigate the price volatility and make informed decisions within the TON ecosystem.</p> 
                   </div>
                </div>
                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                    <div class="about-img">
-                     <figure><img src="/static/assets/images/f1.jpg" alt="Bitcoin Analysis" style="height: 450px;"></figure>
+                     <figure><img src="/static/assets/images/tn.png" alt="Bitcoin Analysis" style="height: 320px;"></figure>
                   </div>
                </div>
             </div>

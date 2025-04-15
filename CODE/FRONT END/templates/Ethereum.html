@@ -115,6 +115,11 @@
            color: rgb(8, 179, 74);
            margin-bottom: 20px;
          }
+         .about span,
+         .about p,
+         .about h2 {
+             color:black;  /* Darker shade to match the top text */
+         }
      
        </style>
      </head>
@@ -124,14 +129,14 @@
        <!-- Header -->
        <header id="header" class="fixed-top">
          <div class="container d-flex align-items-center justify-content-between">
-           <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">BITCOIN</span><span>FORCAST</span></a></h1>
+           <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">crypto</span><span>FORECAST</span></a></h1>
            <nav class="nav-menu d-none d-lg-block">
              <ul>
               <li><a href="/user">Home</a></li>
-              <li class="active"><a href="/about">Bitcoin</a></li>
-              <li><a href="/viewdata">View Data</a></li>
-              
-              <li><a href="/predictionnew">Prediction</a></li>
+              <li><a href="/Select">Select Crypto</a></li>
+              <li class="active"><a href="/Ethereum">Ethereum</a></li>
+              <li><a href="/Ethereumdata">View Data</a></li>
+              <li><a href="/Ethereumpred">Prediction</a></li>
               <li><a href="/Logout">Logout</a></li>
              </ul>
            </nav>
@@ -146,7 +151,7 @@
                <div class="col-md-12">
                   <div class="titlepage">
                      <h2>About Informations</h2>
-                     <span align="justify">In recent years, Bitcoin has emerged as a prominent digital asset, captivating the attention of investors and analysts alike. Given its volatile nature and potential for substantial returns, accurate price prediction is essential for informed decision-making. This project focuses on leveraging time series analysis techniques to forecast Bitcoin prices using the Prophet library developed by Facebook.</span>
+                     <span align="justify">Ethereum is a widely used cryptocurrency and an open-source, decentralized blockchain platform that enables the creation of smart contracts and decentralized applications (dApps). Its native token, Ether (ETH), is the second-largest digital currency by market capitalization after Bitcoin. Unlike Bitcoin, which primarily serves as digital money, Ethereum is programmable, allowing developers to build and deploy a variety of decentralized technologies. It plays a central role in powering DeFi (Decentralized Finance) platforms, NFTs (Non-Fungible Tokens), and DAOs (Decentralized Autonomous Organizations). With the transition to Ethereum 2.0 and its shift to a proof-of-stake consensus mechanism, Ethereum has also become more energy-efficient, scalable, and aligned with long-term sustainability goals. These features have made Ethereum a foundation for innovation in the Web3 space.</span>
                   </div>
                </div>
             </div>
@@ -155,14 +160,12 @@
             <div class="row flexcss">
                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                   <div class="about-box">
-                     <p align="justify">Prophet is designed for handling time series data that exhibit seasonal effects and trends, making it an ideal choice for financial forecasting. The project involves the collection and preprocessing of historical Bitcoin price data, followed by the application of Prophet to generate forecasts. By evaluating the model's performance through metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), we aim to validate its effectiveness in predicting future price movements.
-
-                        This analysis not only provides insights into Bitcoin price trends but also contributes to the growing body of knowledge surrounding cryptocurrency market dynamics. Ultimately, the goal is to create a robust predictive model that can assist investors and traders in making data-driven decisions in the ever-evolving cryptocurrency landscape.</p> 
+                     <p align="justify">To analyze and predict Ethereum’s future price movements, we utilized the Facebook Prophet forecasting model, a robust tool designed to handle time series data with strong seasonal patterns and trends. By feeding the model with historical Ethereum price data, we were able to generate accurate future forecasts. Prophet’s flexibility in managing daily, weekly, and yearly seasonality makes it particularly suitable for the dynamic and often volatile cryptocurrency markets. This approach helps investors, analysts, and developers anticipate potential shifts in price, understand broader market trends, and make informed, data-driven decisions. Leveraging such forecasting techniques can provide a strategic advantage in navigating Ethereum’s fast-paced and ever-evolving ecosystem.</p> 
                   </div>
                </div>
                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                    <div class="about-img">
-                     <figure><img src="/static/assets/images/f1.jpg" alt="Bitcoin Analysis" style="height: 450px;"></figure>
+                     <figure><img src="/static/assets/images/m.jpg" alt="Bitcoin Analysis" style="height: 350px;"></figure>
                   </div>
                </div>
             </div>

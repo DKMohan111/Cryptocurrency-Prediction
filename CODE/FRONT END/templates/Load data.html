@@ -4,132 +4,243 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Crypto</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="static/assets/img/favicon.png" rel="icon">
   <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="static/assets/css/style.css" rel="stylesheet">
 
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f2027;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
+    #header {
+      background: rgba(15, 52, 96, 0.95);
+      padding: 10px 0;
+    }
+
+    .logo a {
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo a span {
+      color: #00c9a7;
+    }
+
+    .logo a {
+      color: #e0e0e0;
+    }
+
+    .nav-menu ul {
+      display: flex;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 1.1rem;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu .active > a {
+      background-color: #00c9a7;
+      color: #0f2027;
+    }
+
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url('static/assets/img/high.jpg') center center / cover no-repeat;
+      position: relative;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    #hero .container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: rgb(8, 179, 74);
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.7);  /* Slightly darker for better contrast */
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* More depth */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .form-container:hover {
+      transform: scale(1.05);  /* Slight hover effect for form */
+    }
+
+    .form-container h3 {
+      color: #00c9a7;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .form-container label,
+    .form-container input[type="file"] {
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .form-container input[type="file"] {
+      border: 2px solid #00c9a7;  /* Green border for better visibility */
+      border-radius: 5px;
+      padding: 10px;
+      margin: 15px 0;
+      background-color: transparent;
+      color: #fff;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-container input[type="file"]:focus {
+      border-color: #0fb7b2;  /* Lighter green when focused */
+    }
+
+    .form-container input[type="submit"] {
+      background-color: #00c9a7;
+      color: #0f2027;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+      font-weight: 600;
+    }
+
+    .form-container input[type="submit"]:hover {
+      background-color: #0fb7b2;
+      color: #fff;
+      transform: translateY(-2px);  /* Slight button hover effect */
+    }
+
+    .form-container input[type="submit"]:active {
+      transform: translateY(0);  /* Button returns to normal on click */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 25px;
+      }
+
+      .form-container h3 {
+        font-size: 1.6rem;
+      }
+
+      .form-container input[type="submit"] {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header  id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo"><a href="/">Crypto Detection</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="index.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>
-
-      <!-- <nav class="nav-menu d-none d-lg-block">
-
-        <ul>
-          <li><a href="/">Home</a></li>
-
-
-
-          <li class="active"><a href="/Load data">Load Data</a></li>
-          <li><a href="/View data">View Data</a></li>
-          <li><a href="/Model">Select Model</a></li>
-          <li><a href="/Prediction">Prediction</a></li>
-          <li> <a href="/about">Bitcoin</a> </li>
-          <li><a href="/Login">LogOut</a></li>
-
-
-
-
-
-
-        </ul>
-
-      </nav>-->
+  <!-- Header -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="/"><span style="color: #e0e0e0;">Crypto</span><span>Detection</span></a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/Load data">Load Data</a></li>
-    
-            {% if data_loaded %}
-                <li><a href="/View data">View Data</a></li>
-            {% endif %}
-    
-            <li><a href="/Model">Select Model</a></li>
-            <li><a href="/Prediction">Prediction</a></li>
-            <li><a href="/about">Bitcoin</a></li>
-            <li><a href="/Logout">Logout</a></li>
+          <li><a href="/user">Home</a></li>
+          <li class="active"><a href="/Load data">Load Data</a></li>
+          {% if data_loaded %}
+          <li><a href="/View data">View Data</a></li>
+          {% endif %}
+          <li><a href="/Model">Select Model</a></li>
+          <li><a href="/Advanced">Prediction</a></li>
+          <li><a href="/Select">Forecast</a></li>
+          <li><a href="/Logout">Logout</a></li>
         </ul>
-    </nav>
-    
-
+      </nav>
     </div>
-  </header><!-- End Header -->
+  </header>
 
+  <!-- Hero Section -->
   <section id="hero">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-<!--      <div class="carousel-inner" role="listbox">-->
-                  <div class="carousel-item active" style="background-image: url(static/assets/img/z1.png)">
-          <div class="carousel-container">
-            <div class="container">
-              <center>
-                <h3 style="bottom: 222px;color:rgb(8, 179, 74);padding-top: 50px;">{{msg}}</h3>
-                </center>
-                      <h3 style="color:white">Load Dataset</h3><br>
-
-                      <form action = "{{url_for('load_data')}}" method="post" enctype="multipart/form-data">
-
-                            <label style="color:white;width: 224px;height: 35px;">Select CSV Files</label>
-
-                                    <input type="file" name="file"placeholder="SELECT CSV FILES" style="color:white" required/><br>
-                                <input type="submit" value="submit"class="btn btn-info">
-
-
-
-                                   </form>
-                </div>
+    <div class="container">
+      {% if msg %}
+      <h3>{{ msg }}</h3>
+      {% endif %}
+      <div class="form-container">
+        <h3>Load Dataset</h3>
+        <form action="{{ url_for('load_data') }}" method="post" enctype="multipart/form-data">
+          <label>Select CSV File</label><br>
+          <input type="file" name="file" required><br>
+          <input type="submit" value="Submit">
+        </form>
       </div>
-    </div>
-<!--      </div>-->
     </div>
   </section>
 
-
-
-
-
-
-          <script src="static/assets/vendor/jquery/jquery.min.js"></script>
-          <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-          <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-          <script src="static/assets/vendor/php-email-form/validate.js"></script>
-          <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-          <script src="static/assets/vendor/venobox/venobox.min.js"></script>
-          <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-          <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-  <!-- Template Main JS File -->
-          <script src="static/assets/js/main.js"></script>
+  <!-- Scripts -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/js/main.js"></script>
 
 </body>
 
